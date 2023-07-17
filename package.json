@@ -2,9 +2,9 @@
   "name": "quirky-interactive",
   "version": "1.0.0",
   "description": "Your app description here",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.18.2"
