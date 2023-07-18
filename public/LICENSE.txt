@@ -1,17 +1,17 @@
-CHOICESCRIPT LICENSE (CSL) v1.0
+QuirkScript LICENSE (CSL) v1.0
 
 Non-commercial usage and modification of the works is permitted
-provided that (1) the ChoiceScript license is retained with the works,
+provided that (1) the QuirkScript license is retained with the works,
 so that any entity that uses the works is notified of this license,
 and (2) the user grants at no charge an unrestricted, transferrable,
 non-exclusive license to  and  for any
-modifications, if any, made to the ChoiceScript interpreter.  The user
-may not use the ChoiceScript interpreter or code written for use with
-the ChoiceScript interpreter for any commercial purposes, including
+modifications, if any, made to the QuirkScript interpreter.  The user
+may not use the QuirkScript interpreter or code written for use with
+the QuirkScript interpreter for any commercial purposes, including
 sales of complete applications, use of the code to generate
 advertising revenue, or any other commercial purpose.  If you are
 interested in a commercial license, please contact
-support@choiceofgames.com.
+support@
 
 DISCLAIMER
 

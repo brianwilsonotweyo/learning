@@ -73,7 +73,7 @@ function showStats() {
       });
     }
     var currentScene = window.stats.scene;
-    var scene = new Scene("choicescript_stats", window.stats, this.nav, {secondaryMode:"stats", saveSlot:"temp"});
+    var scene = new Scene("QuirkScript_stats", window.stats, this.nav, {secondaryMode:"stats", saveSlot:"temp"});
     clearScreen(function() {
       setButtonTitles();
       scene.execute();
@@ -1066,27 +1066,27 @@ function printYoutubeFrame(slug) {
 
 function moreGames() {
     if (window.isIosApp) {
-      window.location.href = "https://choiceofgames.app.link/jBm199qZXL/";
+      window.location.href = "https://.app.link/jBm199qZXL/";
     } else if (window.isAndroidApp) {
       if (window.isNookAndroidApp) {
         asyncAlert("Please search the Nook App Store for \"Choice of Games\" for more games like this!");
         return;
       }
       if (window.isAmazonAndroidApp) {
-        window.location.href = "https://www.amazon.com/gp/mas/dl/android?p=com.choiceofgames.omnibus&t=choofgam-20&ref=moreGames";
+        window.location.href = "https://www.amazon.com/gp/mas/dl/android?p=com..omnibus&t=choofgam-20&ref=moreGames";
       } else {
-        window.location.href = "https://play.google.com/store/apps/details?id=com.choiceofgames.omnibus&referrer=utm_medium%3Dweb%26utm_source%3Dmoregames";
+        window.location.href = "https://play.google.com/store/apps/details?id=com..omnibus&referrer=utm_medium%3Dweb%26utm_source%3Dmoregames";
       }
     } else if (window.isSteamApp) {
       window.location.href = "https://store.steampowered.com/curator/7026798-Choice-of-Games/";
     } else {
       try {
         if (window.isChromeApp) {
-          window.open("https://www.choiceofgames.com/category/our-games/");
+          window.open("https://quirk123-ea0dcffbc645.herokuapp.com/");
         } else if (window.isHeartsChoice) {
-          window.location.href = "https://www.heartschoice.com/shop/";
+          window.location.href = "https://quirk123-ea0dcffbc645.herokuapp.com/";
         } else {
-          window.location.href = "https://www.choiceofgames.com/category/our-games/";
+          window.location.href = "https://quirk123-ea0dcffbc645.herokuapp.com/";
         }
       } catch (e) {
         // in xulrunner, this will be blocked, but it will trigger opening the external browser
@@ -1118,7 +1118,7 @@ function printShareLinks(target, now) {
     var androidUrl;
     if (window.isNookAndroidApp) {
       if (window.nookEan && nookEan != "UNKNOWN") {
-        mobileMesg = "  <li><a href='choiceofgamesnook://"+window.nookEan+"'>Rate this app</a> in the Nook App Store</li>\n";
+        mobileMesg = "  <li><a href='nook://"+window.nookEan+"'>Rate this app</a> in the Nook App Store</li>\n";
       }
     } else if (androidLink) {
       androidUrl = getAndroidReviewLink();
@@ -1159,7 +1159,7 @@ function printShareLinks(target, now) {
     if (window.isWeb) {
       url = window.location.protocol + "//" + window.location.hostname + url;
     } else {
-      url = "https://www.choiceofgames.com" + url;
+      url = "https://www..com" + url;
     }
   }
 
@@ -1167,7 +1167,7 @@ function printShareLinks(target, now) {
   var title = encodeURIComponent(document.title);
   var dataUriSupported = !/MSIE [67]/.test(navigator.userAgent);
 
-  var twitterHandle = window.isHeartsChoice ? "heartschoice" : "choiceofgames";
+  var twitterHandle = window.isHeartsChoice ? "heartschoice" : "";
 
   var shareLinkText =
         '<li>'+(dataUriSupported?'<img height="16" width="16" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAsklEQVQ4EWNgoBAwgvQnVq75f+vBG5KMUlMQYZjfHsLIBNJFqmZkPSzEWKsqL8zQXebJICLIDVZuEzUTrg3sAjgPBwNZM7oSolyAzWaYQUS5AKYYG43XBUeWpaPogfGRwwCvAW/efwUbAPMCjI9sKl4DArKXgNXCbIbxkQ2gOAwoNgDsBS5ONgYNJTFkl2FlG2nLwMVv3HsFZlPHBTLifAznrj6Bm47OQI42mBwoM1EFAAAnVCliRFKHdQAAAABJRU5ErkJggg==">':"")+
@@ -1258,7 +1258,7 @@ function getAndroidReviewLink() {
     } else if (/^com\.heartschoice/.test(package)) {
       omnibus = "com.heartschoice.o";
     } else {
-      omnibus = "com.choiceofgames.omnibus";
+      omnibus = "com..omnibus";
     }
     if (window.isAmazonAndroidApp) {
       return "http://www.amazon.com/gp/mas/dl/android?p="+omnibus+"&t=choofgam-20&ref=rate"
@@ -1277,7 +1277,7 @@ function isFollowEnabled() {
   if (!window.isWeb) return false;
   // iOS add to homescreen seems not to like these iframes
   if (window.navigator.standalone) return false;
-  if ("localhost" != window.location.hostname && !/\.?choiceofgames\.com$/.test(window.location.hostname)) return false;
+  if ("localhost" != window.location.hostname && !/\.?\.com$/.test(window.location.hostname)) return false;
   return true;
 }
 
@@ -1288,7 +1288,7 @@ function printFollowButtons() {
   var iframe = document.createElement('iframe');
   var width = 300;
   var height = 66;
-  iframe.setAttribute("src", "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fchoiceofgames"+
+  iframe.setAttribute("src", "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2F"+
     "&amp;send=false&amp;layout=standard&amp;width="+width+"&amp;show_faces=true&amp;font&amp;colorscheme=light&amp;"+
     "action=like&amp;height="+height+"&amp;appId=190439350983878");
   iframe.setAttribute("scrolling", "no");
@@ -1338,8 +1338,8 @@ function subscribe(target, options, callback) {
     return;
   }
   var mailToSupported = isMobile && !window.isMacApp;
-  if (window.isAndroidApp) mailToSupported = urlSupport.isSupported("mailto:support@choiceofgames.com");
-  var domain = window.isHeartsChoice ? "heartschoice.com" : "choiceofgames.com";
+  if (window.isAndroidApp) mailToSupported = urlSupport.isSupported("mailto:libraula@gmail.com");
+  var domain = window.isHeartsChoice ? "heartschoice.com" : ".com";
   if (mailToSupported) {
     subscribeByMail(target, options, callback, function() {
       window.location.href = "mailto:subscribe-"+window.storeName+"-"+platformCode() + "@"+domain+"?subject=Sign me up&body=Please notify me when the next game is ready.";
@@ -1384,19 +1384,19 @@ function subscribe(target, options, callback) {
       var listId = window.isHeartsChoice ? "fa4134344b" : "e9cdee1aaa";
       var mailParams = "u=eba910fddc9629b2810db6182&id="+listId+"&SIGNUP="+window.storeName+"-"+platformCode()+"&EMAIL="+encodeURIComponent(email);
       if (window.isChromeApp) {
-        chrome.permissions.contains({origins: ["http://choiceofgames.us4.list-manage.com/"]},function(isXhrAllowed) {
+        chrome.permissions.contains({origins: ["http://.us4.list-manage.com/"]},function(isXhrAllowed) {
           if (isXhrAllowed) {
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", 'http://choiceofgames.us4.list-manage.com/subscribe/post-json?'+mailParams, true);
+            xhr.open("GET", 'http://.us4.list-manage.com/subscribe/post-json?'+mailParams, true);
             xhr.onreadystatechange = function() {
               if (xhr.readyState != 4) return;
               if (xhr.status == 200) {
                 var response = JSON.parse(xhr.responseText);
                 window["jsonp"+timestamp](response);
               } else if (xhr.status === 0) {
-                window["jsonp"+timestamp]({result:"error", msg:"There was a network error submitting your registration. Please try again later, or email subscribe@choiceofgames.com instead."});
+                window["jsonp"+timestamp]({result:"error", msg:"There was a network error submitting your registration. Please try again later, or email libraula@gmail.com instead."});
               } else {
-                window["jsonp"+timestamp]({result:"error", msg:"Sorry, our mail server had an error. It's our fault. Please try again later, or email subscribe@choiceofgames.com instead."});
+                window["jsonp"+timestamp]({result:"error", msg:"Sorry, our mail server had an error. It's our fault. Please try again later, or email libraula@gmail.com instead."});
               }
             };
             xhr.send();
@@ -1421,7 +1421,7 @@ function subscribe(target, options, callback) {
       } else {
         if (isWinStoreApp || window.location.protocol == "https:") {
           var xhr = findXhr();
-          xhr.open("GET", 'https://www.choiceofgames.com/mailchimp_proxy.php/subscribe/post-json?'+mailParams, true);
+          xhr.open("GET", 'https://www..com/mailchimp_proxy.php/subscribe/post-json?'+mailParams, true);
           var done = false;
           xhr.onreadystatechange = function() {
             if (done) return;
@@ -1431,14 +1431,14 @@ function subscribe(target, options, callback) {
               var response = JSON.parse(xhr.responseText);
               window["jsonp"+timestamp](response);
             } else if (xhr.status === 0) {
-                window["jsonp"+timestamp]({result:"error", msg:"There was a network error submitting your registration. Please try again later, or email subscribe@choiceofgames.com instead."});
+                window["jsonp"+timestamp]({result:"error", msg:"There was a network error submitting your registration. Please try again later, or email libraula@gmail.com instead."});
             } else {
-              window["jsonp"+timestamp]({result:"error", msg:"Sorry, our mail server had an error. It's our fault. Please try again later, or email subscribe@choiceofgames.com instead."});
+              window["jsonp"+timestamp]({result:"error", msg:"Sorry, our mail server had an error. It's our fault. Please try again later, or email libraula@gmail.com instead."});
             }
           };
           xhr.send();
         } else {
-          script.src = 'https://choiceofgames.us4.list-manage.com/subscribe/post-json?'+mailParams+'&c=jsonp' + timestamp;
+          script.src = 'https://.us4.list-manage.com/subscribe/post-json?'+mailParams+'&c=jsonp' + timestamp;
           head.appendChild(script);
         }
       }
@@ -1735,9 +1735,9 @@ function restorePurchases(product, callback) {
             } else {
               var target = document.getElementById('text');
               if (error) {
-                target.innerHTML="<p>Restore failed. Please try again later, or sign in to Choiceofgames.com to restore purchases.</p>";
+                target.innerHTML="<p>Restore failed. Please try again later, or sign in to .com to restore purchases.</p>";
               } else {
-                target.innerHTML="<p>Restore completed. This product is not yet purchased. You may also sign in to Choiceofgames.com to restore purchases.</p>";
+                target.innerHTML="<p>Restore completed. This product is not yet purchased. You may also sign in to .com to restore purchases.</p>";
               }
               loginForm(document.getElementById('text'), /*optionality*/1, /*err*/null, webRestoreCallback);
               curl();
@@ -1765,10 +1765,10 @@ function restorePurchases(product, callback) {
       printParagraph("Restore completed. "+appStore+" records indicate that "+
         "you have not purchased this product using the \""+omnibus+"\" app, "+
         "but you may have purchased the product in the \""+gameTitle+"\" app, "+
-        "or on our website at Choiceofgames.com.");
+        "or on our website at ");
 
       options = [
-        {name:"Restore purchases from Choiceofgames.com.", group:"choice", webRestore:true},
+        {name:"Restore purchases from ", group:"choice", webRestore:true},
         {name:"Restore purchases using the \""+gameTitle+"\" app.", group:"choice", transfer:true},
       ];
 
@@ -1786,7 +1786,7 @@ function restorePurchases(product, callback) {
                   } else {
                     if (response.error === "not registered") {
                       logout();
-                      printParagraph("Sign in to Choiceofgames.com to restore purchases.");
+                      printParagraph("Sign in to .com to restore purchases.");
                       loginForm(document.getElementById('text'), /*optionality*/1, /*err*/null, webRestoreCallback);
                     } else {
                       asyncAlert("There was an error restoring purchases. (Your network connection may be down.) Please try again later.");
@@ -1795,7 +1795,7 @@ function restorePurchases(product, callback) {
                   }
                 });
               } else {
-                printParagraph("Sign in to Choiceofgames.com to restore purchases.");
+                printParagraph("Sign in to .com to restore purchases.");
                 loginForm(document.getElementById('text'), /*optionality*/1, /*err*/null, webRestoreCallback);
               }
             });
@@ -1822,7 +1822,7 @@ function restorePurchases(product, callback) {
                   printParagraph("Sometimes purchases can fail to "+
                     "restore for reasons outside our control. If you have already purchased "+
                     "this product, please email a copy of your receipt to "+
-                    "[url=mailto:"+transferPlatform+"-transfer-"+storeName+"-missing@choiceofgames.com]"+transferPlatform+"-transfer-"+storeName+"-missing@choiceofgames.com[/url] and we'll find a way to help "+
+                    "[url=mailto:"+transferPlatform+"-transfer-"+storeName+"-missing@.com]"+transferPlatform+"-transfer-"+storeName+"-missing@.com[/url] and we'll find a way to help "+
                     "you."
                   );
                 }
@@ -1855,7 +1855,7 @@ function restorePurchases(product, callback) {
                     "this product in the \""+gameTitle+"\" app.");
                     printParagraph("Sometimes purchases can fail to restore for reasons outside our control. If you "+
                     "have already purchased this product, please email a copy of your receipt "+
-                    "to [url=mailto:"+transferPlatform+"-transfer-"+storeName+"-failed@choiceofgames.com]"+transferPlatform+"-transfer-"+storeName+"-failed@choiceofgames.com[/url] and we'll find a "+
+                    "to [url=mailto:"+transferPlatform+"-transfer-"+storeName+"-failed@.com]"+transferPlatform+"-transfer-"+storeName+"-failed@.com[/url] and we'll find a "+
                     "way to help you.");
                     var target = document.getElementById('text');
                     printButton("Next", target, false, function() {
@@ -1866,7 +1866,7 @@ function restorePurchases(product, callback) {
                 });
               } else { // result === "error"
                 printParagraph("Restore failed. Please try again later. If this error "+
-                  "persists, please contact [url=mailto:"+transferPlatform+"-transfer-"+storeName+"-error@choiceofgames.com]"+transferPlatform+"-transfer-"+storeName+"-error@choiceofgames.com[/url] "+
+                  "persists, please contact [url=mailto:"+transferPlatform+"-transfer-"+storeName+"-error@.com]"+transferPlatform+"-transfer-"+storeName+"-error@.com[/url] "+
                   "and we'll find a way to help you.")
                 printOptions([""], [
                   {name:"Try again now.", group:"choice", retry:true},
@@ -1900,7 +1900,7 @@ function restorePurchases(product, callback) {
                 });
               } else {
                 clearScreen(function() {
-                  printParagraph("To restore purchases in the "+omnibus+" app using the "+gameTitle+" app, you'll first need to sign in using a Choiceofgames.com account.");
+                  printParagraph("To restore purchases in the "+omnibus+" app using the "+gameTitle+" app, you'll first need to sign in using a .com account.");
                   loginForm(document.getElementById('text'), /*optionality*/1, /*err*/null, function(ok) {
                     if (ok) {
                       window.transferPurchaseCallback = transferPurchaseCallback;
@@ -1938,7 +1938,7 @@ function restorePurchases(product, callback) {
             cacheKnownPurchases(response);
           } else {
             if (response.error != "not registered") {
-              alertify.error("There was an error downloading your purchases from Choiceofgames.com. "+
+              alertify.error("There was an error downloading your purchases from  "+
                 "Please refresh this page to try again, or contact " + getSupportEmail() + " for assistance.", 15000);
             }
           }
@@ -1948,7 +1948,7 @@ function restorePurchases(product, callback) {
       } else {
         clearScreen(function() {
           var target = document.getElementById('text');
-          target.innerHTML="<p>Please sign in to Choiceofgames.com to restore purchases.</p>";
+          target.innerHTML="<p>Please sign in to .com to restore purchases.</p>";
           var steamRestore = false;
           var steamLink = document.getElementById('steamLink');
           if (steamLink && steamLink.href && !/INSERTINSERTINSERT/.test(steamLink.href)) {
@@ -2036,7 +2036,7 @@ function purchase(product, callback) {
     } else {
       clearScreen(function() {
         var target = document.getElementById('text');
-        target.innerHTML="<p>Please sign in to Choiceofgames.com to purchase.</p>";
+        target.innerHTML="<p>Please sign in to .com to purchase.</p>";
         loginForm(target, /*optional*/1, /*err*/null, function(registered){
           if (registered) {
             if (window.knownPurchases && window.knownPurchases[product]) {
@@ -2095,7 +2095,7 @@ function purchase(product, callback) {
   } else if (isWebPurchaseSupported()) {
     if (!window.StripeCheckout) return asyncAlert("Sorry, we weren't able to initiate payment. (Your "+
       "network connection may be down.) Please refresh the page and try again, or contact "+
-      "support@choiceofgames.com for assistance.");
+      "libraula@gmail.com for assistance.");
     var fullProductName = window.storeName + "." + product;
     function stripe() {
       if (window.productData && window.productData[product]) {
@@ -2120,12 +2120,12 @@ function purchase(product, callback) {
                   asyncAlert(cardError);
                   clearScreen(function() {loadAndRestoreGame("", window.forcedScene);});
                 } else if ("purchase already in flight" == response.error) {
-                  asyncAlert("Sorry, there was an error handling your purchase. Please wait five minutes and try again, or contact support@choiceofgames.com for assistance.");
+                  asyncAlert("Sorry, there was an error handling your purchase. Please wait five minutes and try again, or contact libraula@gmail.com for assistance.");
                   clearScreen(function() {loadAndRestoreGame("", window.forcedScene);});
                 } else {
                   asyncAlert("Sorry, there was an error processing your card. (Your "+
                     "network connection may be down.) Please refresh the page and try again, or contact "+
-                    "support@choiceofgames.com for assistance.");
+                    "libraula@gmail.com for assistance.");
                   clearScreen(function() {loadAndRestoreGame("", window.forcedScene);});
                 }
                 curl();
@@ -2136,7 +2136,7 @@ function purchase(product, callback) {
       } else {
         return asyncAlert("Sorry, we weren't able to initiate payment. (Your "+
           "network connection may be down.) Please refresh the page and try again, or contact "+
-          "support@choiceofgames.com for assistance.");
+          "libraula@gmail.com for assistance.");
       }
     }
     if (window.registered && window.recordedEmail) {
@@ -2144,7 +2144,7 @@ function purchase(product, callback) {
     }
     clearScreen(function() {
       var target = document.getElementById('text');
-      target.innerHTML="<p>Please sign in to Choiceofgames.com to purchase.</p>";
+      target.innerHTML="<p>Please sign in to .com to purchase.</p>";
       loginForm(document.getElementById('text'), /*optional*/1, /*err*/null, function(registered){
         if (registered) {
           if (window.knownPurchases && window.knownPurchases[product]) {
@@ -2221,9 +2221,9 @@ function isPrerelease() {
   var steamTrial = window.isSteamApp && window.isTrial;
   if (typeof window != "undefined" && (window.isWeb || steamTrial) && window.releaseDate) {
     if (new Date() > window.releaseDate.getTime()) return false;
-    if (/(fullaccess|preview)@choiceofgames.com/.test(getCookieByName("login"))) return false;
+    if (/(fullaccess|preview)@.com/.test(getCookieByName("login"))) return false;
     var identity = document.getElementById("identity");
-    return !(identity && /(fullaccess|preview)@choiceofgames.com/.test(identity.innerHTML));
+    return !(identity && /(fullaccess|preview)@.com/.test(identity.innerHTML));
   } else {
     return false;
   }
@@ -2706,7 +2706,7 @@ function loginForm(target, optional, errorMessage, callback) {
           "</div><span><span>My email address is: </span><input type=email name=email id=email value='"+
           escapedEmail+"' style='font-size: 25px; width: 12em'></span><p><label class=noBorder id=subscribeLabel for=subscribe>"+
           "<input type=checkbox name=subscribe id=subscribe checked> "+
-          "Email me when new games are available.</label></p><p>Do you have a Choiceofgames.com password?</p>"+
+          "Email me when new games are available.</label></p><p>Do you have a .com password?</p>"+
           "<div class='choice'>"+
           "<label for=new class=firstChild><input type=radio name=choice value=new id=new checked> No, I'm new.</label>"+
           "<label for=passwordButton><input type=radio name=choice value=passwordButton id=passwordButton> "+
@@ -2759,10 +2759,10 @@ function loginForm(target, optional, errorMessage, callback) {
         var subscribe = form.subscribe.checked;
         var choice = getFormValue("choice");
         if ("steam" == choice) {
-          window.open('https://www.choiceofgames.com/api/Steam/');
+          window.open('https://www..com/api/Steam/');
         }
         if ("facebook" == choice) {
-          if (!window.FB) return asyncAlert("Sorry, we weren't able to sign you in with Facebook. (Your network connection may be down.) Please try again later, or contact support@choiceofgames.com for assistance.");
+          if (!window.FB) return asyncAlert("Sorry, we weren't able to sign you in with Facebook. (Your network connection may be down.) Please try again later, or contact libraula@gmail.com for assistance.");
           var loginParams = {scope:'email',return_scopes:true};
           if (window.facebookReRequest) loginParams.auth_type = "rerequest";
           return FB.login(function(response){
@@ -2784,7 +2784,7 @@ function loginForm(target, optional, errorMessage, callback) {
                     cacheKnownPurchases(response.purchases);
                     safeCall(null, function() {callback("ok");});
                   } else {
-                    asyncAlert("Sorry, we weren't able to sign you in with Facebook. (Your network connection may be down.) Please try again later, or contact support@choiceofgames.com for assistance.");
+                    asyncAlert("Sorry, we weren't able to sign you in with Facebook. (Your network connection may be down.) Please try again later, or contact libraula@gmail.com for assistance.");
                   }
                 }, "app_id", facebookAppId);
               } else {
@@ -2795,7 +2795,7 @@ function loginForm(target, optional, errorMessage, callback) {
           },loginParams);
         }
         if ("google" == choice) {
-          if (!window.gapi) return asyncAlert("Sorry, we weren't able to sign you in with Google. (Your network connection may be down.) Please try again later, or contact support@choiceofgames.com for assistance.");
+          if (!window.gapi) return asyncAlert("Sorry, we weren't able to sign you in with Google. (Your network connection may be down.) Please try again later, or contact libraula@gmail.com for assistance.");
           var done = false;
           return gapi.auth.signIn({callback: function (authResult) {
             if (done) return;
@@ -2809,12 +2809,12 @@ function loginForm(target, optional, errorMessage, callback) {
                   if (ok) {
                     callback("ok");
                   } else {
-                    asyncAlert("Sorry, we weren't able to sign you in with Google. Please try again later, or contact support@choiceofgames.com for assistance.");
+                    asyncAlert("Sorry, we weren't able to sign you in with Google. Please try again later, or contact libraula@gmail.com for assistance.");
                   }
                 }, "code", authResult['code'], "client_id", googleAppId);
               });
             } else {
-              asyncAlert("Sorry, we weren't able to sign you in with Google. Please try again later, or contact support@choiceofgames.com for assistance.");
+              asyncAlert("Sorry, we weren't able to sign you in with Google. Please try again later, or contact libraula@gmail.com for assistance.");
             }
           }});
         }
@@ -2879,7 +2879,7 @@ function loginForm(target, optional, errorMessage, callback) {
                     loginForm(target, optional, 'Sorry, the email address "'+email+'" is already in use. Please type your password below, or use a different email address.', callback);
                   } else {
                     form.style.display = "";
-                    showMessage("Sorry, we weren't able to sign you in. (Your network connection may be down.) Please try again later, or contact support@choiceofgames.com for assistance.");
+                    showMessage("Sorry, we weren't able to sign you in. (Your network connection may be down.) Please try again later, or contact libraula@gmail.com for assistance.");
                   }
                 });
               };
@@ -2916,7 +2916,7 @@ function loginForm(target, optional, errorMessage, callback) {
                 } else if ("incorrect password" == response.error) {
                   showMessage('Sorry, that password is incorrect. Please try again, or select "I forgot my password" to reset your password.');
                 } else {
-                  showMessage("Sorry, we weren't able to sign you in. (Your network connection may be down.) Please try again later, or contact support@choiceofgames.com for assistance.");
+                  showMessage("Sorry, we weren't able to sign you in. (Your network connection may be down.) Please try again later, or contact libraula@gmail.com for assistance.");
                 }
               });
             } else if ("forgot" == choice) {
@@ -2933,7 +2933,7 @@ function loginForm(target, optional, errorMessage, callback) {
                 } else if ("unknown email" == response.error) {
                   showMessage('Sorry, we can\'t find a record for the email address "'+email+'". Please try a different email address, or create a new account.');
                 } else {
-                  showMessage("Sorry, we weren't able to sign you in. (Your network connection may be down.) Please try again later, or contact support@choiceofgames.com for assistance.");
+                  showMessage("Sorry, we weren't able to sign you in. (Your network connection may be down.) Please try again later, or contact libraula@gmail.com for assistance.");
                 }
               });
             }
@@ -2951,7 +2951,7 @@ function loginForm(target, optional, errorMessage, callback) {
 }
 
 function loginDiv(registered, email) {
-  var domain = "https://www.choiceofgames.com/";
+  var domain = "https://www..com/";
   var identity = document.getElementById("identity");
   if (!identity) return;
   if (registered) {
@@ -3108,7 +3108,7 @@ function reportBug() {
         if (ok) {
           alertify.log("Thank you for reporting a bug!");
         } else {
-          alertify.alert("Bug reporting failed. Please email your bug report to support@choiceofgames.com (and be sure to mention that the bug reporter failed!)");
+          alertify.alert("Bug reporting failed. Please email your bug report to libraula@gmail.com (and be sure to mention that the bug reporter failed!)");
         }
       }, "email", encodeURIComponent(email),
         "subject", encodeURIComponent("bug report " + window.storeName),
@@ -3121,12 +3121,12 @@ window.registered = false;
 
 function getSupportEmail() {
   if (window.storeName) {
-    return "support-" + storeName + "-" + platformCode() + "@choiceofgames.com";
+    return "support-" + storeName + "-" + platformCode() + "@.com";
   }
   try {
     return document.getElementById("supportEmail").getAttribute("href").substring(7);
   } catch (e) {
-    return "support-external@choiceofgames.com";
+    return "support-external@.com";
   }
 }
 
@@ -3151,9 +3151,9 @@ function absolutizeAboutLink() {
     if (/^https?:/.test(canonical)) {
       absoluteCanonical = canonical;
     } else if (/^\//.test(canonical)) {
-      absoluteCanonical = "https://www.choiceofgames.com" + canonical;
+      absoluteCanonical = "https://www..com" + canonical;
     } else {
-      absoluteCanonical = "https://www.choiceofgames.com/" + canonical;
+      absoluteCanonical = "https://www..com/" + canonical;
     }
     if (!/\/$/.test(canonical)) {
       absoluteCanonical += "/";
@@ -3244,7 +3244,7 @@ window.onerror=function(msg, file, line, stack) {
           body += "\ncurrentVersion=" + window.currentVersion;
         }
         if (window.nav && window.nav.bugLog) body += "\n\n" + window.nav.bugLog.join("\n");
-        var supportEmailHref = "mailto:support-external@choiceofgames.com";
+        var supportEmailHref = "mailto:support-external@.com";
         try {
           supportEmailHref="mailto:"+getSupportEmail();
           supportEmailHref=supportEmailHref.replace(/\+/g,"%2B");
@@ -3360,11 +3360,11 @@ window.onload=function() {
     }
     if (isFollowEnabled()) {
       var shareElement = document.getElementById("share");
-      if (shareElement) shareElement.innerHTML = '<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fchoiceofgames&amp;send=false'+
+      if (shareElement) shareElement.innerHTML = '<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2F&amp;send=false'+
       '&amp;layout=button_count&amp;width=90&amp;show_faces=true&amp;font&amp;colorscheme=light&amp;action=like&amp;height=20&amp;appId=190439350983878"'+
       ' scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:20px;" allowTransparency="true"></iframe>'+
       '<iframe allowtransparency="true" frameborder="0" scrolling="no" '+
-      'src="//platform.twitter.com/widgets/follow_button.html?screen_name=choiceofgames&amp;show_screen_name=false"'+
+      'src="//platform.twitter.com/widgets/follow_button.html?screen_name=&amp;show_screen_name=false"'+
       ' style="width:160px; height:20px;"></iframe>';
     }
     var supportEmailLink = document.getElementById("supportEmail");
@@ -3733,8 +3733,8 @@ if (window.isCef) {
 			alert("There was an error connecting to Steam. Steam must be running" +
 				" to play this game. If you launched this game using Steam, try restarting Steam" +
 				" or rebooting your computer. If that doesn't work, try completely uninstalling" +
-				" Steam and downloading a fresh copy from steampowered.com.\n\nIf none of that works, please contact" +
-				" support@choiceofgames.com and we'll try to help. (Mention error code "+errorCode+".)")
+				" Steam and downloading a fresh copy from steampowered\n\nIf none of that works, please contact" +
+				" libraula@gmail.com and we'll try to help. (Mention error code "+errorCode+".)")
 			require('electron').remote.app.quit();
     }
 		if (window.isTrial && greenworks.isSubscribedApp(greenworksApps.adfree)) {
@@ -3775,7 +3775,7 @@ function winStoreShareLinkHandler(e) {
     var canonical = document.querySelector("link[rel=canonical]");
     var canonicalHref = canonical && canonical.getAttribute("href");
     if (!/^https?:/.test(canonicalHref)) {
-        canonicalHref = "https://www.choiceofgames.com" + canonicalHref;
+        canonicalHref = "https://www..com" + canonicalHref;
     }
     if (!/\/$/.test(canonicalHref)) {
         canonicalHref += "/";
@@ -3795,7 +3795,7 @@ if (window.isWinStoreApp) {
     baseScript.onload = function () {
         WinJS.Application.onsettings = function (e) {
             var privacyCmd = new Windows.UI.ApplicationSettings.SettingsCommand("privacy", "Privacy Policy", function () {
-                window.open("https://www.choiceofgames.com/privacy-policy");
+                window.open("https://www..com/privacy-policy");
             });
             e.detail.e.request.applicationCommands.append(privacyCmd);
         };

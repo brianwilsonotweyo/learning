@@ -3,7 +3,7 @@
 *scene_list
   startup
 
-*create leadership 50
+*create leadership 0
 *create shield_strength 100
 
 *label startup
@@ -16,6 +16,7 @@ Welcome to the Kobayashi Maru simulation. You are in command of the starship Ent
     *set shield_strength -30
     *set leadership +10
     The Klingons overpower your defenses, and your ship is destroyed. The crew of the Kobayashi Maru is left stranded.
+    *set shield_strength 0
     *goto end_game
 
   #Analyze the situation and come up with a tactical plan.
@@ -33,6 +34,7 @@ Welcome to the Kobayashi Maru simulation. You are in command of the starship Ent
         *set shield_strength -30
         *set leadership +10
         You change tactics and attempt a direct rescue, but the Klingons overpower your defenses, and your ship is destroyed. The crew of the Kobayashi Maru is left stranded.
+        *set shield_strength 0
         *goto end_game
 
   #Attempt to negotiate with the Klingons for the safe release of the Kobayashi Maru.
@@ -45,11 +47,13 @@ Welcome to the Kobayashi Maru simulation. You are in command of the starship Ent
         *set shield_strength -30
         *set leadership +5
         Your continued negotiations prove fruitless, and your ship is ultimately destroyed by the Klingons. The crew of the Kobayashi Maru is left stranded.
+        *set shield_strength 0
         *goto end_game
       #Abandon negotiations and attempt a rescue operation.
         *set shield_strength -40
         *set leadership +10
         You abandon negotiations and engage in a rescue operation, but the Klingons overpower your defenses, and your ship is destroyed. The crew of the Kobayashi Maru is left stranded.
+        *set shield_strength 0
         *goto end_game
 
 *label end_game

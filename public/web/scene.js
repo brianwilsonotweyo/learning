@@ -429,9 +429,9 @@ Scene.prototype.loadSceneFast = function loadSceneFast(url) {
       } catch (e) {
         if (window.location.protocol == "file:" && !window.isMobile) {
           if (/Chrome/.test(navigator.userAgent)) {
-            window.onerror("We're sorry, Google Chrome has blocked ChoiceScript from functioning.  (\"file:\" URLs cannot "+
-            "load files in Chrome.)  ChoiceScript works just fine in Chrome, but only on a published website like "+
-            "choiceofgames.com.  For the time being, please try another browser like Mozilla Firefox.");
+            window.onerror("We're sorry, Google Chrome has blocked QuirkScript from functioning.  (\"file:\" URLs cannot "+
+            "load files in Chrome.)  QuirkScript works just fine in Chrome, but only on a published website like "+
+            "  For the time being, please try another browser like Mozilla Firefox.");
             return;
           }
         }
@@ -497,9 +497,9 @@ Scene.prototype.loadScene = function loadScene() {
             return;
         } else if (xhr.responseText === "") {
           if (window.location.protocol == "file:" && !window.isMobile && /Chrome/.test(navigator.userAgent)) {
-            window.onerror("We're sorry, Google Chrome has blocked ChoiceScript from functioning.  (\"file:\" URLs cannot "+
-            "load files in Chrome.)  ChoiceScript works just fine in Chrome, but only on a published website like "+
-            "choiceofgames.com.  For the time being, please try another browser like Mozilla Firefox.");
+            window.onerror("We're sorry, Google Chrome has blocked QuirkScript from functioning.  (\"file:\" URLs cannot "+
+            "load files in Chrome.)  QuirkScript works just fine in Chrome, but only on a published website like "+
+            "  For the time being, please try another browser like Mozilla Firefox.");
             return;
           } else {
             window.onerror("Couldn't load " + url + "\nThe file is probably missing or empty.");
@@ -527,9 +527,9 @@ Scene.prototype.loadScene = function loadScene() {
       } catch (e) {
         if (window.location.protocol == "file:" && !window.isMobile) {
           if (/Chrome/.test(navigator.userAgent)) {
-            window.onerror("We're sorry, Google Chrome has blocked ChoiceScript from functioning.  (\"file:\" URLs cannot "+
-            "load files in Chrome.)  ChoiceScript works just fine in Chrome, but only on a published website like "+
-            "choiceofgames.com.  For the time being, please try another browser like Mozilla Firefox.");
+            window.onerror("We're sorry, Google Chrome has blocked QuirkScript from functioning.  (\"file:\" URLs cannot "+
+            "load files in Chrome.)  QuirkScript works just fine in Chrome, but only on a published website like "+
+            "  For the time being, please try another browser like Mozilla Firefox.");
             return;
           } else if (e.code === 1012 /*NS_ERROR_DOM_BAD_URI*/) {
             window.onerror("Couldn't load scene file: " + url + "\nThe file is probably missing.");
@@ -549,11 +549,11 @@ Scene.prototype.loadFile = function loadFile() {
       if (header) header.style.display = "none";
       var makeYourOwnGames = document.getElementById('makeyourowngames');
       if (makeYourOwnGames) makeYourOwnGames.style.display = "none";
-      _this.printLine("[b]Please \"Upload\" ChoiceScript[/b]");
+      _this.printLine("[b]Please \"Upload\" QuirkScript[/b]");
       _this.paragraph();
-      _this.printLine("To begin, you'll need to grant permission to \"upload\" your choicescript folder containing index.html.")
+      _this.printLine("To begin, you'll need to grant permission to \"upload\" your QuirkScript folder containing index.html.")
       _this.paragraph();
-      _this.printLine("Use the button below to select your choicescript folder.");
+      _this.printLine("Use the button below to select your QuirkScript folder.");
       _this.paragraph();
       var text = document.getElementById('text');
       var input = document.createElement('input');
@@ -610,7 +610,7 @@ Scene.prototype.loadFile = function loadFile() {
       text.appendChild(input);
       _this.paragraph();
       _this.printLine("(We're not actually going to transfer your code over the Internet, " +
-        "but this web page needs permission to upload your choicescript folder in order to access " +
+        "but this web page needs permission to upload your QuirkScript folder in order to access " +
         "your code and run it. The power to access your code would also grant us the power to " +
         "transfer your code elsewhere, but we're not going to do that. JavaScript programmers " +
         "can read our JavaScript to verify that this is true.)");
@@ -721,7 +721,7 @@ Scene.prototype.execute = function execute() {
 Scene.prototype.parseLabels = function parseLabels() {
     var lineLength = this.lines.length;
     var oldLineNum = this.lineNum;
-    var screenshots = ("choicescript_screenshots" == this.name);
+    var screenshots = ("QuirkScript_screenshots" == this.name);
     var seenChoiceWithoutSet = 0;
     for (this.lineNum = 0; this.lineNum < lineLength; this.lineNum++) {
         this.rollbackLineCoverage();
@@ -729,7 +729,7 @@ Scene.prototype.parseLabels = function parseLabels() {
         // strip byte order mark
         if (this.lineNum == 0 && line.charCodeAt(0) == 65279) lines[0] = line.substring(1);
         var invalidCharacter = line.match(/^(.*)\ufffd/);
-        if (invalidCharacter) throw new Error(this.lineMsg() + "invalid character. (ChoiceScript text should be saved in the UTF-8 encoding.) " + invalidCharacter[0]);
+        if (invalidCharacter) throw new Error(this.lineMsg() + "invalid character. (QuirkScript text should be saved in the UTF-8 encoding.) " + invalidCharacter[0]);
         var result = /^(\s*)\*(\w+)(.*)/.exec(line);
         if (!result) continue;
         var indentation = result[1];
@@ -746,7 +746,7 @@ Scene.prototype.parseLabels = function parseLabels() {
         } else if (screenshots) {
           if ("fake_choice" == command) {
             if (seenChoiceWithoutSet) throw new Error(this.lineMsg() +
-              "In choicescript_screenshots, you need to *set at least one variable between *fake_choice commands, so the stat screen looks interesting. " +
+              "In QuirkScript_screenshots, you need to *set at least one variable between *fake_choice commands, so the stat screen looks interesting. " +
               "There was no *set since the last *fake_choice on line " + seenChoiceWithoutSet + ".");
             seenChoiceWithoutSet = this.lineNum+1;
           } else if ("set" == command) {
@@ -787,8 +787,8 @@ Scene.prototype.runCommand = function runCommand(line) {
           }
           this.initialCommands = false;
         }
-        if (command == "choice" && String(this.name).toLowerCase() == "choicescript_screenshots") {
-          throw new Error(this.lineMsg() + "choicescript_screenshots files should only contain *fake_choice commands, not real *choice commands");
+        if (command == "choice" && String(this.name).toLowerCase() == "QuirkScript_screenshots") {
+          throw new Error(this.lineMsg() + "QuirkScript_screenshots files should only contain *fake_choice commands, not real *choice commands");
         }
         this[command](data);
     } else {
@@ -2692,8 +2692,8 @@ Scene.prototype.restore_game = function restore_game(data) {
       options.push({name:name + " ("+simpleDateTimeFormat(date)+")", group:"choice", state:save});
     }
     if (false) options.push({name:"Restore using a password.", group:"choice", password:true});
-    options.push({name:"Retrieve saved games online from choiceofgames.com.", group:"choice", fetch:true});
-    if (dirtySaveList.length) options.push({name:"Upload saved games to choiceofgames.com.", group:"choice", upload:true});
+    options.push({name:"Retrieve saved games online from ", group:"choice", fetch:true});
+    if (dirtySaveList.length) options.push({name:"Upload saved games to ", group:"choice", upload:true});
     options.push({name:"Cancel.", group:"choice", cancel:true});
     var groups = [""];
     self.renderOptions(groups, options, function(option) {
@@ -2978,7 +2978,7 @@ Scene.prototype.save_game = function save_game(destinationSceneName) {
     var hideEmailForm = false;
     // hideEmailForm = _global.automaticCloudStorage;
     if (!hideEmailForm) {
-      println("Please login to the choiceofgames.com save system with your email address below.", form);
+      println("Please login to the .com save system with your email address below.", form);
 
       var emailInput = document.createElement("input");
       // This can fail on IE
@@ -3067,7 +3067,7 @@ Scene.prototype.save_game = function save_game(destinationSceneName) {
                 submitRemoteSave(slot, email, subscribe, function(ok) {
                   doneLoading();
                   if (!ok) {
-                    asyncAlert("Couldn't upload your saved game to choiceofgames.com. You can try again later from the Restore menu.", function() {
+                    asyncAlert("Couldn't upload your saved game to  You can try again later from the Restore menu.", function() {
                       self.finished = false;
                       self.prevLine = "empty";
                       self.screenEmpty = true;
@@ -3882,7 +3882,7 @@ Scene.prototype.evaluateExpr = function evaluateExpr(stack, parenthetical) {
 
     if (token.value === '%') {
       this.warning("this is a bare % sign, which should be replaced with %+, %-, or modulo if you're really advanced.");
-      this.warning("For more details on modulo, see: https://forum.choiceofgames.com/t/21176");
+      this.warning("For more details on modulo, see: https://forum..com/t/21176");
     }
 
     if (!stack[0]) {

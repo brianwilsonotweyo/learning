@@ -43,7 +43,7 @@ _global.loadTime = new Date().getTime();
 function callIos(scheme, path) {
   if (!_global.isIosApp) return;
   if (typeof webkit !== "undefined" && webkit.messageHandlers) {
-    return webkit.messageHandlers.choicescript.postMessage([scheme, path]);
+    return webkit.messageHandlers.QuirkScript.postMessage([scheme, path]);
   }
   if (path) {
     path = encodeURIComponent(path).replace(/[!~*')(]/g, function(match) {
@@ -210,7 +210,7 @@ function toJson(obj, standardized) {
  }
 }
 
-var loginUrlBase = "https://www.choiceofgames.com/api/";
+var loginUrlBase = "https://www..com/api/";
 function xhrAuthRequest(method, endpoint, callback) {
   var paramBuilder = new Array(arguments.length*3);
   for (var i = 3; i < arguments.length; i=i+2) {
@@ -476,7 +476,7 @@ function isWebSavePossible() {
 }
 
 
-webSaveDomain = "www.choiceofgames.com";
+webSaveDomain = "www..com";
 webSaveUrl = "https://" + webSaveDomain + "/ajax_proxy.php/websave";
 
 function submitRemoteSave(slot, email, subscribe, callback) {
@@ -507,7 +507,7 @@ function submitRemoteSave(slot, email, subscribe, callback) {
       xhr.send(params);
     } else {
       recordDirtySlots([slot], function() {
-        asyncAlert("There was a problem uploading the saved game. This is probably a bug; please contact support@choiceofgames.com with code 17891.", function() {
+        asyncAlert("There was a problem uploading the saved game. This is probably a bug; please contact libraula@gmail.com with code 17891.", function() {
           safeCall(null, function() {callback(false);});
         });
       });
@@ -818,10 +818,10 @@ function restoreGame(state, forcedScene, userRestored) {
       forcedScene = parts[0];
       forcedSceneLabel = parts[1];
     }
-    if (forcedScene == "choicescript_stats") {
+    if (forcedScene == "QuirkScript_stats") {
       secondaryMode = "stats";
       saveSlot = "temp";
-    } else if (forcedScene == "choicescript_upgrade") {
+    } else if (forcedScene == "QuirkScript_upgrade") {
       secondaryMode = "upgrade";
       saveSlot = "temp";
     }
@@ -850,7 +850,7 @@ function restoreGame(state, forcedScene, userRestored) {
 
 function redirectScene(sceneName, label, originLine) {
   var scene = new Scene(sceneName, window.stats, window.nav, {debugMode:window.debug});
-  if (label) scene.targetLabel = {label:label, origin:"choicescript_stats", originLine:originLine};
+  if (label) scene.targetLabel = {label:label, origin:"QuirkScript_stats", originLine:originLine};
   scene.redirectingFromStats = true;
   clearScreen(function() {scene.execute();});
 }
@@ -1083,7 +1083,7 @@ function updateSinglePaidSceneCache(sceneName, callback) {
       var canonical = document.querySelector("link[rel=canonical]");
       var canonicalHref = canonical && canonical.getAttribute("href");
       if (window.beta) {
-        canonicalHref = canonicalHref.replace('https://www.choiceofgames.com/', 'https://www.choiceofgames.com/beta/');
+        canonicalHref = canonicalHref.replace('https://www..com/', 'https://www..com/beta/');
       }
       var url = canonicalHref + "scenes/" + fileName + "?hash="+hashes.scenes[fileName];
       xhr.open("GET", url);
