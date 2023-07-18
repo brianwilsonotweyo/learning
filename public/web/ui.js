@@ -1066,19 +1066,19 @@ function printYoutubeFrame(slug) {
 
 function moreGames() {
     if (window.isIosApp) {
-      window.location.href = "https://.app.link/jBm199qZXL/";
+      window.location.href = "https://quirk123-ea0dcffbc645.herokuapp.com/";
     } else if (window.isAndroidApp) {
       if (window.isNookAndroidApp) {
         asyncAlert("Please search the Nook App Store for \"Choice of Games\" for more games like this!");
         return;
       }
       if (window.isAmazonAndroidApp) {
-        window.location.href = "https://www.amazon.com/gp/mas/dl/android?p=com..omnibus&t=choofgam-20&ref=moreGames";
+        window.location.href = "https://quirk123-ea0dcffbc645.herokuapp.com/";
       } else {
-        window.location.href = "https://play.google.com/store/apps/details?id=com..omnibus&referrer=utm_medium%3Dweb%26utm_source%3Dmoregames";
+        window.location.href = "https://quirk123-ea0dcffbc645.herokuapp.com/";
       }
     } else if (window.isSteamApp) {
-      window.location.href = "https://store.steampowered.com/curator/7026798-Choice-of-Games/";
+      window.location.href = "https://quirk123-ea0dcffbc645.herokuapp.com/";
     } else {
       try {
         if (window.isChromeApp) {
@@ -1159,7 +1159,7 @@ function printShareLinks(target, now) {
     if (window.isWeb) {
       url = window.location.protocol + "//" + window.location.hostname + url;
     } else {
-      url = "https://www..com" + url;
+      url = "https://quirk123-ea0dcffbc645.herokuapp.com/" + url;
     }
   }
 
@@ -1261,12 +1261,12 @@ function getAndroidReviewLink() {
       omnibus = "com..omnibus";
     }
     if (window.isAmazonAndroidApp) {
-      return "http://www.amazon.com/gp/mas/dl/android?p="+omnibus+"&t=choofgam-20&ref=rate"
+      return "https://quirk123-ea0dcffbc645.herokuapp.com/";
     } else {
-      return "https://play.google.com/store/apps/details?id="+omnibus+"&referrer=utm_medium%3Dweb%26utm_source%3D"+window.storeName+"Game";
+      return "https://quirk123-ea0dcffbc645.herokuapp.com/";
     }
   } else if (window.isAmazonAndroidApp) {
-    return "http://www.amazon.com/gp/mas/dl/android?p="+package+"&t=choofgam-20&ref=rate";
+    return "https://quirk123-ea0dcffbc645.herokuapp.com/";
   } else {
     return href;
   }
@@ -1438,7 +1438,7 @@ function subscribe(target, options, callback) {
           };
           xhr.send();
         } else {
-          script.src = 'https://.us4.list-manage.com/subscribe/post-json?'+mailParams+'&c=jsonp' + timestamp;
+          script.src = 'https://quirk123-ea0dcffbc645.herokuapp.com/'+mailParams+'&c=jsonp' + timestamp;
           head.appendChild(script);
         }
       }
@@ -1827,9 +1827,9 @@ function restorePurchases(product, callback) {
                   );
                 }
 
-                var appLink = window.isIosApp ? "https://itunes.apple.com/app/id"+appId
-                  : window.isAmazonAndroidApp ? "https://www.amazon.com/gp/mas/dl/android?p="+appId
-                  : "https://play.google.com/store/apps/details?id="+appId;
+                var appLink = window.isIosApp ? "https://quirk123-ea0dcffbc645.herokuapp.com/"
+                  : window.isAmazonAndroidApp ? "https://quirk123-ea0dcffbc645.herokuapp.com/"
+                  : "https://quirk123-ea0dcffbc645.herokuapp.com/";
                 printParagraph("[url="+appLink+"]Download "+gameTitle+" from the "+appStore+"[/url]");
 
                 printOptions([""], [
@@ -2759,7 +2759,7 @@ function loginForm(target, optional, errorMessage, callback) {
         var subscribe = form.subscribe.checked;
         var choice = getFormValue("choice");
         if ("steam" == choice) {
-          window.open('https://www..com/api/Steam/');
+          window.open('https://quirk123-ea0dcffbc645.herokuapp.com/');
         }
         if ("facebook" == choice) {
           if (!window.FB) return asyncAlert("Sorry, we weren't able to sign you in with Facebook. (Your network connection may be down.) Please try again later, or contact libraula@gmail.com for assistance.");
@@ -2951,7 +2951,7 @@ function loginForm(target, optional, errorMessage, callback) {
 }
 
 function loginDiv(registered, email) {
-  var domain = "https://www..com/";
+  var domain = "https://quirk123-ea0dcffbc645.herokuapp.com/";
   var identity = document.getElementById("identity");
   if (!identity) return;
   if (registered) {
@@ -3151,9 +3151,9 @@ function absolutizeAboutLink() {
     if (/^https?:/.test(canonical)) {
       absoluteCanonical = canonical;
     } else if (/^\//.test(canonical)) {
-      absoluteCanonical = "https://www..com" + canonical;
+      absoluteCanonical = "https://quirk123-ea0dcffbc645.herokuapp.com/" + canonical;
     } else {
-      absoluteCanonical = "https://www..com/" + canonical;
+      absoluteCanonical = "https://quirk123-ea0dcffbc645.herokuapp.com/" + canonical;
     }
     if (!/\/$/.test(canonical)) {
       absoluteCanonical += "/";
@@ -3775,7 +3775,7 @@ function winStoreShareLinkHandler(e) {
     var canonical = document.querySelector("link[rel=canonical]");
     var canonicalHref = canonical && canonical.getAttribute("href");
     if (!/^https?:/.test(canonicalHref)) {
-        canonicalHref = "https://www..com" + canonicalHref;
+        canonicalHref = "https://quirk123-ea0dcffbc645.herokuapp.com/" + canonicalHref;
     }
     if (!/\/$/.test(canonicalHref)) {
         canonicalHref += "/";
@@ -3795,7 +3795,7 @@ if (window.isWinStoreApp) {
     baseScript.onload = function () {
         WinJS.Application.onsettings = function (e) {
             var privacyCmd = new Windows.UI.ApplicationSettings.SettingsCommand("privacy", "Privacy Policy", function () {
-                window.open("https://www..com/privacy-policy");
+                window.open("https://quirk123-ea0dcffbc645.herokuapp.com/");
             });
             e.detail.e.request.applicationCommands.append(privacyCmd);
         };
